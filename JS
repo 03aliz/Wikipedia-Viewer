@@ -1,0 +1,36 @@
+$(document).ready(function() {
+  $("#submitButton").click(function() {
+    var results = ""; //results of search
+    var userInput = $("#searchBox").val();
+    var url = "https://en.wikipedia.org/w/api.php?action=query&list=search&utf8=&format=json&callback=?&srsearch=" + userInput; //wikipedia api url
+   
+    $.getJSON(url, function(data) {
+      $(data.query.search).each(function(index, value) {
+        results += '<a href=' + '"' + 'https://en.wikipedia.org/wiki/' + value.title + '"' + 'target=_blank' + '>' + /* opening anchor tag*/
+          '<div class="well" id="wells">' +
+          '<span id="searchTitle">' + value.title + '</span>' + '<br />' +
+          '<span id="snippet">' + value.snippet + '...' + '</span>' +
+          '</div>'
+
+        +
+        '</a>' + '<br />'; /* closing anchor tag*/
+
+      $("#result").html(results); 
+
+      });
+
+    });
+    $("#title").hide();
+    $("#jt").css("margin-top", "-20px","padding","-10px");
+    
+  });
+
+  $("#searchBox").keypress(function(e) {
+    if (e.which == 13) /* if enter is pressed*/ {
+      //call submit click event
+      $("#submitButton").click();
+    }
+  });
+
+  
+});
