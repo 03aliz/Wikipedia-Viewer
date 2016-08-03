@@ -1,0 +1,32 @@
+#jt{
+  margin-top:25%;
+}
+
+.link{
+  display:block;
+  margin-left:22%;
+  }
+#searchBox{
+  margin-top:10%;
+  border-radius:3px;
+  border: 2px solid black;
+}
+
+#submitButton {
+  margin-top:5%;
+}
+
+#searchTitle{
+  color:black;
+  font-size:2em;
+  
+}
+#snippet{
+  color:black;
+  
+}
+
+a:hover{
+  text-decoration:none;
+}
+
